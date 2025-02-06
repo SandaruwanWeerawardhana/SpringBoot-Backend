@@ -10,9 +10,9 @@ import java.util.ArrayList;
 public class ProductService implements Product_Interface{
 
     public ArrayList<Product> getProduct(){
-        Product product = new Product("sandaruwan","ms",3445.00);
-        Product product2 = new Product("saman","mst",344775.00);
-        Product product3 = new Product("sandaru","mskt",34445.00);
+        Product product = new Product("sandaruwan","wrx",3445.00);
+        Product product2 = new Product("saman","msi",344775.00);
+        Product product3 = new Product("sandaru","jayan",34445.00);
 
         ArrayList<Product> products = new ArrayList<>();
         products.add(product);
