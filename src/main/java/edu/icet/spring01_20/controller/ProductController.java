@@ -8,10 +8,10 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
+@RestController // get network request
 @CrossOrigin
 @RequiredArgsConstructor
-@Slf4j
+@Slf4j // create log
 
 public class ProductController {
 
