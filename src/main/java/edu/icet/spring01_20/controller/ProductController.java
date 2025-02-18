@@ -1,7 +1,7 @@
 package edu.icet.spring01_20.controller;
 
 import edu.icet.spring01_20.model.Product;
-import edu.icet.spring01_20.service.Product_Interface;
+import edu.icet.spring01_20.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController // get network request
-@CrossOrigin
-@RequiredArgsConstructor
+@CrossOrigin //
+@RequiredArgsConstructor //Constructor Injection
 @Slf4j // create log
 
 public class ProductController {
@@ -26,15 +26,31 @@ public class ProductController {
         }
     */
 
-    final Product_Interface productService;
+    final ProductService productService;
 
-
-    @GetMapping("/get")
-    List<Product> getProductList() {
+    // http://localhost:8080/products
+    @GetMapping("/products")
+    List<Product> getProducts() {
         List<Product> products = productService.getProduct();
         return products;
 
     }
+    // http://localhost:8080/product?id=001
+    @GetMapping("/product")
+    List<Product> getProductById(@RequestParam(value = "id") String id) {
+        List<Product> products = productService.getProduct();
+        return products;
+
+    }
+    // http://localhost:8080/product?id=001,002,003
+    @GetMapping("/product")
+    List<Product> getProductById(@RequestParam(value = "id") List<String> id) {
+        List<Product> products = productService.getProduct();
+        return products;
+
+    }
+
+//==================================================================================================================
 
     @GetMapping("/filter-product/{vendor}")
     List<Product> filterSearchProduct(@PathVariable(value = "vendor") String vendor) {
@@ -53,9 +69,9 @@ public class ProductController {
 
     @GetMapping("/filter-products2")
     List<Product> filterSearchProduct3(@RequestParam(value = "vendor") String vendor,
-                                       @RequestParam(value = "name",required = false) String name) {
+                                       @RequestParam(value = "name", required = false) String name) {
 
-        log.info("search vendor-{} | search name- {}", vendor,name);
+        log.info("search vendor-{} | search name- {}", vendor, name);
         return null;
     }
 

@@ -8,6 +8,7 @@ import jakarta.persistence.*;
 public class ProductEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO) //primary key auto generate
+    private Long id;
     private String name;
     private String vendor;
     private Double price;
