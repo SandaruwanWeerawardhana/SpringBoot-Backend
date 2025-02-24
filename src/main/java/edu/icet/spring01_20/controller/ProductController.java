@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController // get network request
-@CrossOrigin //
+@CrossOrigin // Get FrontEnd Connection
 @RequiredArgsConstructor //Constructor Injection
 @Slf4j // create log
 
